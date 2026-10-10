@@ -1,0 +1,61 @@
+#pragma once
+// ============================================================
+//  GABARIT : ce fichier n'est PAS compilé directement.
+//  include/config.h est généré automatiquement à partir de ce gabarit
+//  + de lab.env par "outils/generer_config.py" (appelé par
+//  installer_lab.ps1 ou start_lab.bat).
+//
+//  -> Réseau / MQTT / identifiants : modifie lab.env, PAS ce fichier.
+//  -> Câblage / dimensions / limites du bras : modifie ce fichier
+//     (section ci-dessous), ces réglages sont propres à CE bras physique.
+// ============================================================
+
+const char* WIFI_SSID = "{{WIFI_SSID}}";
+const char* WIFI_PASS = "{{WIFI_PASS}}";
+const char* AP_SSID   = "{{AP_SSID}}";
+const char* AP_PASS   = "{{AP_PASS}}";
+const char* NOM_MDNS  = "{{NOM_MDNS}}";
+
+const bool  MQTT_ACTIF   = true;
+const char* MQTT_SERVEUR = "{{MQTT_SERVEUR}}"; // IP du broker (résolue depuis lab.env)
+const int   MQTT_PORT    = {{MQTT_PORT}};
+const char* MQTT_USER    = "{{MQTT_USER}}";
+const char* MQTT_PASS    = "{{MQTT_PASS}}";
+const char* MQTT_BASE    = "{{MQTT_BASE}}";
+
+// Authentification HTTP (Basic Auth) sur les routes de contrôle (/set, /ik, /repos,
+// /limites, /trim, /cal). Désactivée par défaut (le TP de base montre l'absence
+// d'authentification) ; passe HTTP_AUTH_ACTIF=true dans lab.env pour l'exercice
+// "bonus" qui referme cette faille (voir GUIDE_PROF.md, section Sécurité).
+const bool  HTTP_AUTH_ACTIF = {{HTTP_AUTH_ACTIF}};
+const char* HTTP_AUTH_USER  = "{{HTTP_AUTH_USER}}";
+const char* HTTP_AUTH_PASS  = "{{HTTP_AUTH_PASS}}";
+
+// ----- Câblage / dimensions / limites : propres à ce bras physique -----
+const float H_BASE      = 101.5;
+const float L_BRAS      = 119.8;
+const float L_AVANTBRAS = 193;
+const float D_EPAULE    = -13;
+
+const float VITESSE_DEG_S = 120;
+
+struct ServoConfig {
+  const char* nom;
+  int   pin;
+  int   usMin, usMax;
+  float course;
+  float limMin, limMax;
+  float repos;
+  float zero;
+  int   sens;
+  bool  inverse;
+  float offset;
+};
+
+const int NB_SERVOS = 4;
+ServoConfig SERVOS[NB_SERVOS] = {
+  {"Base",    14,  500,  2500, 270,   0,     270,   90,   90,   1,   false, 0},
+  {"Epaule",  27,  500,  2500, 270,   0,     270,   90,   0,    1,   false, 0},
+  {"Coude",   16,  500,  2500, 270,   0,     270,   90,   180,  1,   true , 0},
+  {"Pince",   17,  500,  2500, 270,   0,     270,   60,   0,    1,   false, 0},
+};

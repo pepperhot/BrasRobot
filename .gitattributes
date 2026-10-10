@@ -1,0 +1,7 @@
+# Fichiers 3D volumineux (~330 Ko à ~2 Mo) : à suivre via Git LFS une fois
+# "git init" fait sur ce projet (sinon ils gonflent l'historique à chaque
+# modification). Installation : "git lfs install" avant le premier commit.
+# Voir GUIDE_PROF.md.
+*.glb filter=lfs diff=lfs merge=lfs -text
+tinkercad/*.glb filter=lfs diff=lfs merge=lfs -text
+data/*.glb.gz filter=lfs diff=lfs merge=lfs -text
