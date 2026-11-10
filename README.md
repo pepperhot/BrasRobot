@@ -1,5 +1,16 @@
 # Bras Robot ESP32 : interface web 3D + MQTT
 
+<p>
+  <img src="https://img.shields.io/badge/ESP32-WROOM-E7352C?style=flat-square&logo=espressif&logoColor=white" alt="ESP32" />
+  <img src="https://img.shields.io/badge/PlatformIO-FF7F00?style=flat-square&logo=platformio&logoColor=white" alt="PlatformIO" />
+  <img src="https://img.shields.io/badge/Arduino-00979D?style=flat-square&logo=arduino&logoColor=white" alt="Arduino" />
+  <img src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white" alt="C++" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/MQTT-660066?style=flat-square&logo=mqtt&logoColor=white" alt="MQTT" />
+  <img src="https://img.shields.io/badge/Modbus-TCP%2FRTU-1f6feb?style=flat-square" alt="Modbus TCP/RTU" />
+  <img src="https://img.shields.io/badge/IoT%2FOT-Security%20Lab-black?style=flat-square" alt="IoT/OT Security Lab" />
+</p>
+
 ```
 BrasRobot/
 ├── BrasRobot.ino   ← le programme (servos, calculs, serveur web, MQTT)
